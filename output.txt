@@ -1,0 +1,75 @@
+13
+-----
+16
+-----
+-10
+-----
+92
+-----
+27
+-----
+15
+-----
+212.5
+-----
+1157.625
+-----
+120
+-----
+80
+-----
+37
+-----
+3.3333
+-----
+0.3
+-----
+1
+-----
+1024
+-----
+512
+-----
+-4
+-----
+0.25
+-----
+50
+-----
+32
+-----
+5
+-----
+7
+-----
+5
+-----
+3
+-----
+-10
+-----
+Error: division by zero (the '/' at position 3)
+-----
+Error: mismatched parentheses: '(' at position 1 is never closed
+-----
+Error: mismatched parentheses: unexpected ')' at position 6
+-----
+Error: unexpected '*' at position 5
+-----
+Error: expression ends unexpectedly: a number is missing after '-' at position 3
+-----
+Error: nothing to calculate before ')' at position 2
+-----
+Error: missing operator before number 4 at position 3
+-----
+Error: missing operator before '(' at position 2
+-----
+Error: invalid character '$' at position 3
+-----
+Error: invalid number '1.2.3' at position 1
+-----
+Error: exponent must be a whole number (the '^' at position 3)
+-----
+Error: division by zero (0 raised to a negative power, the '^' at position 3)
+-----
+Error: exponent too large, the limit is 1000 (the '^' at position 3)

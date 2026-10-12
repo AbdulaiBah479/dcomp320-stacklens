@@ -1,0 +1,369 @@
+Expression: 3 + 5 * 2
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[3]                        operators=[]             number 3: push on the value stack
+  step 2  values=[3]                        operators=[+]            operator +: push on the operator stack
+  step 3  values=[3, 5]                     operators=[+]            number 5: push on the value stack
+  step 4  values=[3, 5]                     operators=[+, *]         operator *: push on the operator stack
+  step 5  values=[3, 5, 2]                  operators=[+, *]         number 2: push on the value stack
+  step 6  values=[13]                       operators=[]             apply 5 * 2 = 10; apply 3 + 10 = 13
+  RESULT = 13
+
+Expression: (8 / 4) + 7 * 2
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[]                         operators=[(]            '(': push on the operator stack
+  step 2  values=[8]                        operators=[(]            number 8: push on the value stack
+  step 3  values=[8]                        operators=[(, /]         operator /: push on the operator stack
+  step 4  values=[8, 4]                     operators=[(, /]         number 4: push on the value stack
+  step 5  values=[2]                        operators=[]             apply 8 / 4 = 2; ')': brackets done, remove '('
+  step 6  values=[2]                        operators=[+]            operator +: push on the operator stack
+  step 7  values=[2, 7]                     operators=[+]            number 7: push on the value stack
+  step 8  values=[2, 7]                     operators=[+, *]         operator *: push on the operator stack
+  step 9  values=[2, 7, 2]                  operators=[+, *]         number 2: push on the value stack
+  step 10 values=[16]                       operators=[]             apply 7 * 2 = 14; apply 2 + 14 = 16
+  RESULT = 16
+
+Expression: 10 - (2 + 3) * 4
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[10]                       operators=[]             number 10: push on the value stack
+  step 2  values=[10]                       operators=[-]            operator -: push on the operator stack
+  step 3  values=[10]                       operators=[-, (]         '(': push on the operator stack
+  step 4  values=[10, 2]                    operators=[-, (]         number 2: push on the value stack
+  step 5  values=[10, 2]                    operators=[-, (, +]      operator +: push on the operator stack
+  step 6  values=[10, 2, 3]                 operators=[-, (, +]      number 3: push on the value stack
+  step 7  values=[10, 5]                    operators=[-]            apply 2 + 3 = 5; ')': brackets done, remove '('
+  step 8  values=[10, 5]                    operators=[-, *]         operator *: push on the operator stack
+  step 9  values=[10, 5, 4]                 operators=[-, *]         number 4: push on the value stack
+  step 10 values=[-10]                      operators=[]             apply 5 * 4 = 20; apply 10 - 20 = -10
+  RESULT = -10
+
+Expression: 3 * 25 + 2 * 8.5
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[3]                        operators=[]             number 3: push on the value stack
+  step 2  values=[3]                        operators=[*]            operator *: push on the operator stack
+  step 3  values=[3, 25]                    operators=[*]            number 25: push on the value stack
+  step 4  values=[75]                       operators=[+]            apply 3 * 25 = 75; operator +: push on the operator stack
+  step 5  values=[75, 2]                    operators=[+]            number 2: push on the value stack
+  step 6  values=[75, 2]                    operators=[+, *]         operator *: push on the operator stack
+  step 7  values=[75, 2, 8.5]               operators=[+, *]         number 8.5: push on the value stack
+  step 8  values=[92]                       operators=[]             apply 2 * 8.5 = 17; apply 75 + 17 = 92
+  RESULT = 92
+
+Expression: 4 * 5 + 2 * 3.5
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[4]                        operators=[]             number 4: push on the value stack
+  step 2  values=[4]                        operators=[*]            operator *: push on the operator stack
+  step 3  values=[4, 5]                     operators=[*]            number 5: push on the value stack
+  step 4  values=[20]                       operators=[+]            apply 4 * 5 = 20; operator +: push on the operator stack
+  step 5  values=[20, 2]                    operators=[+]            number 2: push on the value stack
+  step 6  values=[20, 2]                    operators=[+, *]         operator *: push on the operator stack
+  step 7  values=[20, 2, 3.5]               operators=[+, *]         number 3.5: push on the value stack
+  step 8  values=[27]                       operators=[]             apply 2 * 3.5 = 7; apply 20 + 7 = 27
+  RESULT = 27
+
+Expression: (150 - 45) / 7
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[]                         operators=[(]            '(': push on the operator stack
+  step 2  values=[150]                      operators=[(]            number 150: push on the value stack
+  step 3  values=[150]                      operators=[(, -]         operator -: push on the operator stack
+  step 4  values=[150, 45]                  operators=[(, -]         number 45: push on the value stack
+  step 5  values=[105]                      operators=[]             apply 150 - 45 = 105; ')': brackets done, remove '('
+  step 6  values=[105]                      operators=[/]            operator /: push on the operator stack
+  step 7  values=[105, 7]                   operators=[/]            number 7: push on the value stack
+  step 8  values=[15]                       operators=[]             apply 105 / 7 = 15
+  RESULT = 15
+
+Expression: 250 - 250 * 15 / 100
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[250]                      operators=[]             number 250: push on the value stack
+  step 2  values=[250]                      operators=[-]            operator -: push on the operator stack
+  step 3  values=[250, 250]                 operators=[-]            number 250: push on the value stack
+  step 4  values=[250, 250]                 operators=[-, *]         operator *: push on the operator stack
+  step 5  values=[250, 250, 15]             operators=[-, *]         number 15: push on the value stack
+  step 6  values=[250, 3750]                operators=[-, /]         apply 250 * 15 = 3750; operator /: push on the operator stack
+  step 7  values=[250, 3750, 100]           operators=[-, /]         number 100: push on the value stack
+  step 8  values=[212.5]                    operators=[]             apply 3750 / 100 = 37.5; apply 250 - 37.5 = 212.5
+  RESULT = 212.5
+
+Expression: 1000 * (1 + 0.05) ^ 3
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[1000]                     operators=[]             number 1000: push on the value stack
+  step 2  values=[1000]                     operators=[*]            operator *: push on the operator stack
+  step 3  values=[1000]                     operators=[*, (]         '(': push on the operator stack
+  step 4  values=[1000, 1]                  operators=[*, (]         number 1: push on the value stack
+  step 5  values=[1000, 1]                  operators=[*, (, +]      operator +: push on the operator stack
+  step 6  values=[1000, 1, 0.05]            operators=[*, (, +]      number 0.05: push on the value stack
+  step 7  values=[1000, 1.05]               operators=[*]            apply 1 + 0.05 = 1.05; ')': brackets done, remove '('
+  step 8  values=[1000, 1.05]               operators=[*, ^]         operator ^: push on the operator stack
+  step 9  values=[1000, 1.05, 3]            operators=[*, ^]         number 3: push on the value stack
+  step 10 values=[1157.625]                 operators=[]             apply 1.05 ^ 3 = 1.1576; apply 1000 * 1.1576 = 1157.625
+  RESULT = 1157.625
+
+Expression: (480 + 120) / (3 + 2)
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[]                         operators=[(]            '(': push on the operator stack
+  step 2  values=[480]                      operators=[(]            number 480: push on the value stack
+  step 3  values=[480]                      operators=[(, +]         operator +: push on the operator stack
+  step 4  values=[480, 120]                 operators=[(, +]         number 120: push on the value stack
+  step 5  values=[600]                      operators=[]             apply 480 + 120 = 600; ')': brackets done, remove '('
+  step 6  values=[600]                      operators=[/]            operator /: push on the operator stack
+  step 7  values=[600]                      operators=[/, (]         '(': push on the operator stack
+  step 8  values=[600, 3]                   operators=[/, (]         number 3: push on the value stack
+  step 9  values=[600, 3]                   operators=[/, (, +]      operator +: push on the operator stack
+  step 10 values=[600, 3, 2]                operators=[/, (, +]      number 2: push on the value stack
+  step 11 values=[600, 5]                   operators=[/]            apply 3 + 2 = 5; ')': brackets done, remove '('
+  step 12 values=[120]                      operators=[]             apply 600 / 5 = 120
+  RESULT = 120
+
+Expression: (78 + 85 + 91 + 66) / 4
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[]                         operators=[(]            '(': push on the operator stack
+  step 2  values=[78]                       operators=[(]            number 78: push on the value stack
+  step 3  values=[78]                       operators=[(, +]         operator +: push on the operator stack
+  step 4  values=[78, 85]                   operators=[(, +]         number 85: push on the value stack
+  step 5  values=[163]                      operators=[(, +]         apply 78 + 85 = 163; operator +: push on the operator stack
+  step 6  values=[163, 91]                  operators=[(, +]         number 91: push on the value stack
+  step 7  values=[254]                      operators=[(, +]         apply 163 + 91 = 254; operator +: push on the operator stack
+  step 8  values=[254, 66]                  operators=[(, +]         number 66: push on the value stack
+  step 9  values=[320]                      operators=[]             apply 254 + 66 = 320; ')': brackets done, remove '('
+  step 10 values=[320]                      operators=[/]            operator /: push on the operator stack
+  step 11 values=[320, 4]                   operators=[/]            number 4: push on the value stack
+  step 12 values=[80]                       operators=[]             apply 320 / 4 = 80
+  RESULT = 80
+
+Expression: (98.6 - 32) * 5 / 9
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[]                         operators=[(]            '(': push on the operator stack
+  step 2  values=[98.6]                     operators=[(]            number 98.6: push on the value stack
+  step 3  values=[98.6]                     operators=[(, -]         operator -: push on the operator stack
+  step 4  values=[98.6, 32]                 operators=[(, -]         number 32: push on the value stack
+  step 5  values=[66.6]                     operators=[]             apply 98.6 - 32 = 66.6; ')': brackets done, remove '('
+  step 6  values=[66.6]                     operators=[*]            operator *: push on the operator stack
+  step 7  values=[66.6, 5]                  operators=[*]            number 5: push on the value stack
+  step 8  values=[333]                      operators=[/]            apply 66.6 * 5 = 333; operator /: push on the operator stack
+  step 9  values=[333, 9]                   operators=[/]            number 9: push on the value stack
+  step 10 values=[37]                       operators=[]             apply 333 / 9 = 37
+  RESULT = 37
+
+Expression: 10 / 3
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[10]                       operators=[]             number 10: push on the value stack
+  step 2  values=[10]                       operators=[/]            operator /: push on the operator stack
+  step 3  values=[10, 3]                    operators=[/]            number 3: push on the value stack
+  step 4  values=[3.3333]                   operators=[]             apply 10 / 3 = 3.3333
+  RESULT = 3.3333
+
+Expression: 0.1 + 0.2
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[0.1]                      operators=[]             number 0.1: push on the value stack
+  step 2  values=[0.1]                      operators=[+]            operator +: push on the operator stack
+  step 3  values=[0.1, 0.2]                 operators=[+]            number 0.2: push on the value stack
+  step 4  values=[0.3]                      operators=[]             apply 0.1 + 0.2 = 0.3
+  RESULT = 0.3
+
+Expression: 1 / 3 + 1 / 3 + 1 / 3
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[1]                        operators=[]             number 1: push on the value stack
+  step 2  values=[1]                        operators=[/]            operator /: push on the operator stack
+  step 3  values=[1, 3]                     operators=[/]            number 3: push on the value stack
+  step 4  values=[0.3333]                   operators=[+]            apply 1 / 3 = 0.3333; operator +: push on the operator stack
+  step 5  values=[0.3333, 1]                operators=[+]            number 1: push on the value stack
+  step 6  values=[0.3333, 1]                operators=[+, /]         operator /: push on the operator stack
+  step 7  values=[0.3333, 1, 3]             operators=[+, /]         number 3: push on the value stack
+  step 8  values=[0.6667]                   operators=[+]            apply 1 / 3 = 0.3333; apply 0.3333 + 0.3333 = 0.6667; operator +: push on the operator stack
+  step 9  values=[0.6667, 1]                operators=[+]            number 1: push on the value stack
+  step 10 values=[0.6667, 1]                operators=[+, /]         operator /: push on the operator stack
+  step 11 values=[0.6667, 1, 3]             operators=[+, /]         number 3: push on the value stack
+  step 12 values=[1]                        operators=[]             apply 1 / 3 = 0.3333; apply 0.6667 + 0.3333 = 1
+  RESULT = 1
+
+Expression: 2 ^ 10
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[2]                        operators=[]             number 2: push on the value stack
+  step 2  values=[2]                        operators=[^]            operator ^: push on the operator stack
+  step 3  values=[2, 10]                    operators=[^]            number 10: push on the value stack
+  step 4  values=[1024]                     operators=[]             apply 2 ^ 10 = 1024
+  RESULT = 1024
+
+Expression: 2 ^ 3 ^ 2
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[2]                        operators=[]             number 2: push on the value stack
+  step 2  values=[2]                        operators=[^]            operator ^: push on the operator stack
+  step 3  values=[2, 3]                     operators=[^]            number 3: push on the value stack
+  step 4  values=[2, 3]                     operators=[^, ^]         operator ^: push on the operator stack
+  step 5  values=[2, 3, 2]                  operators=[^, ^]         number 2: push on the value stack
+  step 6  values=[512]                      operators=[]             apply 3 ^ 2 = 9; apply 2 ^ 9 = 512
+  RESULT = 512
+
+Expression: -2 ^ 2
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[]                         operators=[-]            negative sign: push on the operator stack
+  step 2  values=[2]                        operators=[-]            number 2: push on the value stack
+  step 3  values=[2]                        operators=[-, ^]         operator ^: push on the operator stack
+  step 4  values=[2, 2]                     operators=[-, ^]         number 2: push on the value stack
+  step 5  values=[-4]                       operators=[]             apply 2 ^ 2 = 4; apply negative sign to 4 = -4
+  RESULT = -4
+
+Expression: 2 ^ -2
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[2]                        operators=[]             number 2: push on the value stack
+  step 2  values=[2]                        operators=[^]            operator ^: push on the operator stack
+  step 3  values=[2]                        operators=[^, -]         negative sign: push on the operator stack
+  step 4  values=[2, 2]                     operators=[^, -]         number 2: push on the value stack
+  step 5  values=[0.25]                     operators=[]             apply negative sign to 2 = -2; apply 2 ^ -2 = 0.25
+  RESULT = 0.25
+
+Expression: (2 + 3) ^ 2 * 2
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[]                         operators=[(]            '(': push on the operator stack
+  step 2  values=[2]                        operators=[(]            number 2: push on the value stack
+  step 3  values=[2]                        operators=[(, +]         operator +: push on the operator stack
+  step 4  values=[2, 3]                     operators=[(, +]         number 3: push on the value stack
+  step 5  values=[5]                        operators=[]             apply 2 + 3 = 5; ')': brackets done, remove '('
+  step 6  values=[5]                        operators=[^]            operator ^: push on the operator stack
+  step 7  values=[5, 2]                     operators=[^]            number 2: push on the value stack
+  step 8  values=[25]                       operators=[*]            apply 5 ^ 2 = 25; operator *: push on the operator stack
+  step 9  values=[25, 2]                    operators=[*]            number 2: push on the value stack
+  step 10 values=[50]                       operators=[]             apply 25 * 2 = 50
+  RESULT = 50
+
+Expression: 2 ** 5
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[2]                        operators=[]             number 2: push on the value stack
+  step 2  values=[2]                        operators=[^]            operator ^: push on the operator stack
+  step 3  values=[2, 5]                     operators=[^]            number 5: push on the value stack
+  step 4  values=[32]                       operators=[]             apply 2 ^ 5 = 32
+  RESULT = 32
+
+Expression: 100 / 4 / 5
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[100]                      operators=[]             number 100: push on the value stack
+  step 2  values=[100]                      operators=[/]            operator /: push on the operator stack
+  step 3  values=[100, 4]                   operators=[/]            number 4: push on the value stack
+  step 4  values=[25]                       operators=[/]            apply 100 / 4 = 25; operator /: push on the operator stack
+  step 5  values=[25, 5]                    operators=[/]            number 5: push on the value stack
+  step 6  values=[5]                        operators=[]             apply 25 / 5 = 5
+  RESULT = 5
+
+Expression: -5 + 12
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[]                         operators=[-]            negative sign: push on the operator stack
+  step 2  values=[5]                        operators=[-]            number 5: push on the value stack
+  step 3  values=[-5]                       operators=[+]            apply negative sign to 5 = -5; operator +: push on the operator stack
+  step 4  values=[-5, 12]                   operators=[+]            number 12: push on the value stack
+  step 5  values=[7]                        operators=[]             apply -5 + 12 = 7
+  RESULT = 7
+
+Expression: 2 - -3
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[2]                        operators=[]             number 2: push on the value stack
+  step 2  values=[2]                        operators=[-]            operator -: push on the operator stack
+  step 3  values=[2]                        operators=[-, -]         negative sign: push on the operator stack
+  step 4  values=[2, 3]                     operators=[-, -]         number 3: push on the value stack
+  step 5  values=[5]                        operators=[]             apply negative sign to 3 = -3; apply 2 - -3 = 5
+  RESULT = 5
+
+Expression: ((2 + 3) * (4 - 1)) / 5
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[]                         operators=[(]            '(': push on the operator stack
+  step 2  values=[]                         operators=[(, (]         '(': push on the operator stack
+  step 3  values=[2]                        operators=[(, (]         number 2: push on the value stack
+  step 4  values=[2]                        operators=[(, (, +]      operator +: push on the operator stack
+  step 5  values=[2, 3]                     operators=[(, (, +]      number 3: push on the value stack
+  step 6  values=[5]                        operators=[(]            apply 2 + 3 = 5; ')': brackets done, remove '('
+  step 7  values=[5]                        operators=[(, *]         operator *: push on the operator stack
+  step 8  values=[5]                        operators=[(, *, (]      '(': push on the operator stack
+  step 9  values=[5, 4]                     operators=[(, *, (]      number 4: push on the value stack
+  step 10 values=[5, 4]                     operators=[(, *, (, -]   operator -: push on the operator stack
+  step 11 values=[5, 4, 1]                  operators=[(, *, (, -]   number 1: push on the value stack
+  step 12 values=[5, 3]                     operators=[(, *]         apply 4 - 1 = 3; ')': brackets done, remove '('
+  step 13 values=[15]                       operators=[]             apply 5 * 3 = 15; ')': brackets done, remove '('
+  step 14 values=[15]                       operators=[/]            operator /: push on the operator stack
+  step 15 values=[15, 5]                    operators=[/]            number 5: push on the value stack
+  step 16 values=[3]                        operators=[]             apply 15 / 5 = 3
+  RESULT = 3
+
+Expression: -(2 + 3) * 2
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[]                         operators=[-]            negative sign: push on the operator stack
+  step 2  values=[]                         operators=[-, (]         '(': push on the operator stack
+  step 3  values=[2]                        operators=[-, (]         number 2: push on the value stack
+  step 4  values=[2]                        operators=[-, (, +]      operator +: push on the operator stack
+  step 5  values=[2, 3]                     operators=[-, (, +]      number 3: push on the value stack
+  step 6  values=[5]                        operators=[-]            apply 2 + 3 = 5; ')': brackets done, remove '('
+  step 7  values=[-5]                       operators=[*]            apply negative sign to 5 = -5; operator *: push on the operator stack
+  step 8  values=[-5, 2]                    operators=[*]            number 2: push on the value stack
+  step 9  values=[-10]                      operators=[]             apply -5 * 2 = -10
+  RESULT = -10
+
+Expression: 8 / (4 - 4)
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[8]                        operators=[]             number 8: push on the value stack
+  step 2  values=[8]                        operators=[/]            operator /: push on the operator stack
+  step 3  values=[8]                        operators=[/, (]         '(': push on the operator stack
+  step 4  values=[8, 4]                     operators=[/, (]         number 4: push on the value stack
+  step 5  values=[8, 4]                     operators=[/, (, -]      operator -: push on the operator stack
+  step 6  values=[8, 4, 4]                  operators=[/, (, -]      number 4: push on the value stack
+  step 7  values=[8, 0]                     operators=[/]            apply 4 - 4 = 0; ')': brackets done, remove '('
+  ERROR: division by zero (the '/' at position 3)
+
+Expression: (3 + 4
+  ERROR: mismatched parentheses: '(' at position 1 is never closed
+
+Expression: 3 + 4)
+  ERROR: mismatched parentheses: unexpected ')' at position 6
+
+Expression: 3 + * 4
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[3]                        operators=[]             number 3: push on the value stack
+  step 2  values=[3]                        operators=[+]            operator +: push on the operator stack
+  ERROR: unexpected '*' at position 5
+
+Expression: 5 -
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[5]                        operators=[]             number 5: push on the value stack
+  step 2  values=[5]                        operators=[-]            operator -: push on the operator stack
+  ERROR: expression ends unexpectedly: a number is missing after '-' at position 3
+
+Expression: ()
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[]                         operators=[(]            '(': push on the operator stack
+  ERROR: nothing to calculate before ')' at position 2
+
+Expression: 3 4
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[3]                        operators=[]             number 3: push on the value stack
+  ERROR: missing operator before number 4 at position 3
+
+Expression: 3(4)
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[3]                        operators=[]             number 3: push on the value stack
+  ERROR: missing operator before '(' at position 2
+
+Expression: 7 $ 2
+  ERROR: invalid character '$' at position 3
+
+Expression: 1.2.3 + 4
+  ERROR: invalid number '1.2.3' at position 1
+
+Expression: 2 ^ 0.5
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[2]                        operators=[]             number 2: push on the value stack
+  step 2  values=[2]                        operators=[^]            operator ^: push on the operator stack
+  step 3  values=[2, 0.5]                   operators=[^]            number 0.5: push on the value stack
+  ERROR: exponent must be a whole number (the '^' at position 3)
+
+Expression: 0 ^ -1
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[0]                        operators=[]             number 0: push on the value stack
+  step 2  values=[0]                        operators=[^]            operator ^: push on the operator stack
+  step 3  values=[0]                        operators=[^, -]         negative sign: push on the operator stack
+  step 4  values=[0, 1]                     operators=[^, -]         number 1: push on the value stack
+  ERROR: division by zero (0 raised to a negative power, the '^' at position 3)
+
+Expression: 2 ^ 5000
+  step 0  values=[]                         operators=[]             start: both stacks are empty
+  step 1  values=[2]                        operators=[]             number 2: push on the value stack
+  step 2  values=[2]                        operators=[^]            operator ^: push on the operator stack
+  step 3  values=[2, 5000]                  operators=[^]            number 5000: push on the value stack
+  ERROR: exponent too large, the limit is 1000 (the '^' at position 3)
+
