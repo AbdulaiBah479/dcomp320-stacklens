@@ -1,8 +1,15 @@
 # StackLens: see every push and pop
 
-**Course:** DCOMP320 Data Structures and Algorithms
-**Assignment:** Individual Assignment (10%), Stacks Implementation
-**Author:** Abdulai Bah, Limkokwing University of Creative Technology, Sierra Leone
+| | |
+|---|---|
+| **Course** | DCOMP320 Data Structures and Algorithms |
+| **Assignment** | Individual Assignment: Stacks Implementation |
+| **Student** | Abdulai Bah |
+| **Institution** | Limkokwing University of Creative Technology, Sierra Leone |
+| **Lecturer** | Hawa Kallon |
+| **Contact** | babdulai225.2@gmail.com |
+| **GitHub** | [AbdulaiBah479](https://github.com/AbdulaiBah479) |
+| **Repository** | https://github.com/AbdulaiBah479/dcomp320-stacklens |
 
 StackLens reads maths expressions from `input.txt`, evaluates each one **using stacks**, and writes the answers to `output.txt`, keeping every separator line. It also lets you **watch** the stacks work: it writes `stacklens.html`, a page you open in any web browser to step through every push and pop of every expression.
 
@@ -82,6 +89,5 @@ input.txt                  output.txt
 ## Note on the handout example
 The handout lists the answer to `(8 / 4) + 7 * 2` as 17. The correct answer is 8 / 4 + 7 x 2 = 2 + 14 = **16**, so the program outputs 16. This is deliberate and is explained in the report.
 
-## Repository
-This project is hosted at https://github.com/AbdulaiBah479/dcomp320-stacklens (private). The lecturer is added as a collaborator.
-To view the visualizer without running anything, download `stacklens.html` and open it in any browser.
+## Viewing without running
+Download `stacklens.html` and open it in any browser to watch the stacks work. Nothing else is needed.
