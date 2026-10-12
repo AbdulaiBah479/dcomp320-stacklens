@@ -82,13 +82,6 @@ input.txt                  output.txt
 ## Note on the handout example
 The handout lists the answer to `(8 / 4) + 7 * 2` as 17. The correct answer is 8 / 4 + 7 x 2 = 2 + 14 = **16**, so the program outputs 16. This is deliberate and is explained in the report.
 
-## Putting the project on GitHub
-1. Create a new repository on github.com (for example `dcomp320-stacklens`).
-2. This folder is already a Git repository with commits. Connect and push:
-```
-git remote add origin https://github.com/<your-username>/<repo-name>.git
-git branch -M main
-git push -u origin main
-```
-3. On GitHub: Settings > Collaborators > Add people, and add your lecturer's GitHub username.
-4. Optional, but nice: Settings > Pages > Deploy from branch `main` (root). Your visualizer then has a live web link: `https://<your-username>.github.io/<repo-name>/stacklens.html`.
+## Repository
+This project is hosted at https://github.com/AbdulaiBah479/dcomp320-stacklens (private). The lecturer is added as a collaborator.
+To view the visualizer without running anything, download `stacklens.html` and open it in any browser.
